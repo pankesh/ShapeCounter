@@ -34,6 +34,20 @@ public class ShapeCounterTest {
     }
 
     @Test
+    public void testAllZeros() {
+        ShapeMatrix shapeMatrix = inputReceiver.readShape(
+        // @formatter:off
+        new int[][] {   { 0, 0, 0, 0, 0 },
+                        { 0, 0, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0 } });
+        // @formatter:on
+        
+        assertEquals(0, ShapeCounter.countShapes(shapeMatrix));
+    }
+    
+    @Test
     public void testTriangularMatrix() {
         ShapeMatrix shapeMatrix = inputReceiver.readShape(
         // @formatter:off
@@ -75,4 +89,55 @@ public class ShapeCounterTest {
         assertEquals(3, ShapeCounter.countShapes(shapeMatrix));
     }
     
+    @Test
+    public void testALargeMatrix() {
+        ShapeMatrix shapeMatrix = inputReceiver.readShape(
+        // @formatter:off
+        new int[][] {   { 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0 },
+                        { 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0 }, 
+                        { 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 }, 
+                        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, 
+                        { 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0 }, 
+                        { 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 }, 
+                        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, 
+                        { 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0 }, 
+                        { 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 }, 
+                        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, 
+                        { 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0 }, 
+                        { 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 }, 
+                        { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, 
+                        { 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0 }, 
+                        { 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 }, 
+                        { 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0 } });
+        // @formatter:on         
+        assertEquals(16, ShapeCounter.countShapes(shapeMatrix));
+    }
+    
+    @Test
+    public void testRealWorldExample() {
+        ShapeMatrix shapeMatrix = inputReceiver.readShape(
+        // @formatter:off
+        new int[][] {   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                        { 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+                        { 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0 }, 
+                        { 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+                        { 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+                        { 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0 }, 
+                        { 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } });
+        // @formatter:on 
+        assertEquals(5, ShapeCounter.countShapes(shapeMatrix));
+    }
+    
+
+
+
 }
