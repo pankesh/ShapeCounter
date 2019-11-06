@@ -48,20 +48,36 @@ public class ShapeCounter {
             System.out.println("found connected shape at (" + row + "," + col + ")");
             cell.visisted = true;
             foundShape = true;
-            if (row < shapeMatrix.getMaxRows() - 1) {
-                findShapes(shapeMatrix, row + 1, col);
-            }
-            if (row >= 1) {
-                findShapes(shapeMatrix, row - 1, col);
-            }
-            if (col < shapeMatrix.getMaxCols() - 1) {
-                findShapes(shapeMatrix, row, col + 1);
-            }
-            if (col >= 1) {
-                findShapes(shapeMatrix, row, col - 1);
-            }
+            lookForCellToBelow(shapeMatrix, row, col);
+            lookForCellAbove(shapeMatrix, row, col);
+            lookForCellToRight(shapeMatrix, row, col);
+            lookForCellToLeft(shapeMatrix, row, col);
         }
         return foundShape;
+    }
+
+    private static void lookForCellToLeft(ShapeMatrix shapeMatrix, int row, int col) {
+        if (col >= 1) {
+            findShapes(shapeMatrix, row, col - 1);
+        }
+    }
+
+    private static void lookForCellToRight(ShapeMatrix shapeMatrix, int row, int col) {
+        if (col < shapeMatrix.getMaxCols() - 1) {
+            findShapes(shapeMatrix, row, col + 1);
+        }
+    }
+
+    private static void lookForCellAbove(ShapeMatrix shapeMatrix, int row, int col) {
+        if (row >= 1) {
+            findShapes(shapeMatrix, row - 1, col);
+        }
+    }
+
+    private static void lookForCellToBelow(ShapeMatrix shapeMatrix, int row, int col) {
+        if (row < shapeMatrix.getMaxRows() - 1) {
+            findShapes(shapeMatrix, row + 1, col);
+        }
     }
 
 }
