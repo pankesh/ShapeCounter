@@ -13,19 +13,19 @@ public class InputReceiver {
         ShapeMatrix shapeMatrix = new ShapeMatrix(inputShape.length, inputShape[0].length);
 
         // @formatter:off
-		Arrays.stream(inputShape)
-			.forEach(row -> {
-			                    IntStream
-        							.range(0, row.length)
-        							.forEach(col -> {
-        							    if (row[col] == 1) {
-        							        shapeMatrix.setCell(rowCounter, col, new ShapeCell());
-        							    }
-        							});
-			                    rowCounter++;
-    			            }
-			);
-		// @formatter:on
+        Arrays.stream(inputShape)
+            .forEach(row -> {
+                               IntStream
+                                    .range(0, row.length)
+                                    .forEach(col -> {
+                                        if (row[col] == 1) {
+                                            shapeMatrix.setCell(rowCounter, col, new ShapeCell());
+                                        }
+                                    });
+                                rowCounter++;
+                            }
+            );
+        // @formatter:on
 
         return shapeMatrix;
     }

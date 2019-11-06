@@ -3,22 +3,31 @@ package com.pankesh.shapecounter;
 public class ShapeCounter {
     public static void main(String[] args) {
         InputReceiver inputReceiver = new InputReceiver();
-        // @formatter:off
         ShapeMatrix shapeMatrix = inputReceiver.readShape(
         // @formatter:off
-        new int[][] {   { 1, 1, 0, 1, 1 },
-                        { 1, 1, 0, 1, 1 }, 
-                        { 0, 0, 1, 0, 0 }, 
-                        { 1, 1, 1, 1, 1 }, 
-                        { 1, 1, 0, 1, 1 } });
-        // @formatter:on
+        new int[][] {   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                        { 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+                        { 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0 }, 
+                        { 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+                        { 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+                        { 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0 }, 
+                        { 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0 }, 
+                        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } });
+        // @formatter:on 
 
         countShapes(shapeMatrix);
     }
 
     public static int countShapes(ShapeMatrix shapeMatrix) {
         int shapesFound = 0;
-        // int shapesFound = findShapes(shapeMatrix,0,0);
         for (int row = 0; row < shapeMatrix.getMaxRows(); row++) {
             for (int col = 0; col < shapeMatrix.getMaxCols(); col++) {
                 if (findShapes(shapeMatrix, row, col)) {
